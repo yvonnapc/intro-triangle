@@ -1,28 +1,29 @@
 var triangle = function(a,b,c) {
 
-    if ((a === b) && (b === c) && (a === c)) {
+    if ((a === 0) || (b === 0) || (c === 0)) {
+      return false;
+    }
+    else if ((a < 0) || (b < 0) || (c < 0))  {
+      return false;
+    }
+    else if ((a === b) && (b === c) && (a === c)) {
       $(".type").text("equilateral");
       return "equilateral";
     }
-    else if ((a === b) || (b === c) || (a === c)) {
+    else if (((a === b) && (a + b) > c) || ((a === c) && (a + c) > b) || ((b === c) && (b + c) > a)) {
       $(".type").text("isosceles");
       return "isosceles";
     }
-    else if ((a != b) && (b != c) && (c != a)) {
-
+    else if ((a !== b) && (b !== c) && (c !== a)) {
       $(".type").text("scalene");
       return "scalene";
     }
-    //
-    // if (((a + b) === c) || ((a + c) === b) || ((b + c) === a)) {
-    // return false;
+
    else {
     return false;
   }
-
-
 };
-
+//
 $(document).ready(function() {
   $("form#triangleInput").submit(function(event) {
     var a = parseInt($("input#a").val());
@@ -32,6 +33,7 @@ $(document).ready(function() {
 
     if (!result) {              // same as writing if (result === false)
       $(".not").text("not");
+      $(".type").text("");
     }
     else {
       $(".not").text("");

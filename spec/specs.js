@@ -1,6 +1,6 @@
-describe('leapYear', function() {
+describe('triangle', function() {
   it("NOT a triangle: the sum of the lengths of any two sides of a triangle is less than or equal to the length of the third side.", function() {
-    expect(triangle(2,2,4)).to.equal(false);
+    expect(triangle(2,4,2)).to.equal(false);
   });
 
   it("all three sides of an equilateral triangle are equal.", function() {
