@@ -1,0 +1,42 @@
+<html>
+<head>
+  <title>Mocha spec runner</title>
+  <link rel="stylesheet" href="mocha.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/styles.css">
+  <div id="mocha"></div>
+  <script src="../js/jquery-1.12.0.js"></script>
+  <script src="../js/scripts.js"></script>
+  <script src="mocha.js"></script>
+  <script src="chai.js"></script>
+  <script>mocha.setup('bdd');</script>
+  <script src="specs.js"></script>
+  <script>
+    expect = chai.expect;
+    mocha.checkLeaks();
+    mocha.globals(['jQuery']);
+    mocha.run();
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>Triangle Tracker</h1>
+    <form id="triangleInput">
+        <div class="form-group">
+          <label for="side">Enter lengths for the sides of a triangle.</label>
+          <input id="a" type="text">
+          <input id="b" type="text">
+          <input id="c" type="text">
+        </div>
+        <button type="submit" class="btn">Geometry!</button>
+    </form>
+
+     <div id="result">
+       <p>This is <span class="not"></span> a <span class="type"></span> triangle</p>
+     </div>
+  </div>
+
+
+
+</body>
+</html>
